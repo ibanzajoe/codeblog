@@ -1,4 +1,4 @@
-/usr/local/bin/ruby -r ./siteconf20160825-5-lbwdhe.rb extconf.rb
+/usr/local/bin/ruby -r ./siteconf20170123-7-8xvxys.rb extconf.rb
 Attempting to download https://oss-binaries.phusionpassenger.com/binaries/passenger/by_release/5.0.21/rubyext-ruby-2.2.1-x86_64-linux.tar.gz into /app/volumes/bundler/gems/passenger-5.0.21/download_cache
 *** Could not download https://oss-binaries.phusionpassenger.com/binaries/passenger/by_release/5.0.21/rubyext-ruby-2.2.1-x86_64-linux.tar.gz: The requested URL returned error: 404 Not Found
 Attempting to download https://s3.amazonaws.com/phusion-passenger/binaries/passenger/by_release/5.0.21/rubyext-ruby-2.2.1-x86_64-linux.tar.gz into /app/volumes/bundler/gems/passenger-5.0.21/download_cache

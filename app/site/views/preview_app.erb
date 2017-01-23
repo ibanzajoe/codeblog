@@ -1,0 +1,78 @@
+<div id="app">
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Code Preview App
+        </h1>
+        <h2 class="subtitle">
+          Preview your result of your code
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <div class="columns">
+    <div class="column is-half">
+      <div class="columns" style="display: flex; flex-direction: column;">
+        <div class="column is-half">
+          <div class="box has-shadows" style="width: 500px; height: 100px;">
+            <select>
+              <option value="button">Button</option>
+              <option value="input">Input</option>
+              <option value=""
+            </select>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="box has-shadows" style="width: 500px; height: 500px;">
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+    <div class="column is-half">
+
+    </div>
+
+  </div>
+
+
+</div>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      code: {
+        title: "",
+        heading: "",
+        code_html: "",
+        code_css: "",
+        code_js: "",
+        content: "",
+        why: ""
+      }
+    },
+    computed: {
+      rendered: function () {
+        if (this.code.code_css == "" && this.code.code_js == "") {
+          console.log(this.code.code_html)
+          return this.code.code_html;
+        }
+        console.log("css: ", this.code.code_css, "html: ", this.code.code_html, "js: ", this.code.code_js)
+        return this.code.code_js + " " + this.code.code_css + " " + this.code.code_html
+
+      }
+    },
+    methods: {
+
+    }
+  })
+
+
+</script>

@@ -1,0 +1,187 @@
+<div id="code_blog_app" class="main_container">
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Code Blog Input
+        </h1>
+        <h2 class="subtitle">
+          Blog for Unique and Useful Code
+        </h2>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div id="code_blog_entry" class="columns">
+      <div id="code_blog_entry_input" class="column is-half">
+        <form role="form" method="POST" class="control" action="/code_blog_input">
+          <label class="label">Title</label>
+          <p class="control">
+            <input v-model="code.title" class="input" name="title" type="text" placeholder="Title">
+          </p>
+          <label class="label">Heading</label>
+          <p class="control">
+            <input v-model="code.heading" class="input" name="heading" type="text" placeholder="Heading">
+          </p>
+          <label class="label">Input Code_html</label>
+          <p class="control">
+            <textarea v-model="code.code_html" class="textarea" name="code_html" placeholder="Textarea"></textarea>
+          </p>
+          <label class="label">Input Code_css</label>
+          <p class="control">
+            <textarea v-model="code.code_css" class="textarea" name="code_css" placeholder="Textarea"></textarea>
+          </p>
+          <label class="label">Input Code_js</label>
+          <p class="control">
+            <textarea v-model="code.code_js" class="textarea" name="code_js" placeholder="Textarea"></textarea>
+          </p>
+          <label class="label">Content</label>
+          <p class="control">
+            <textarea v-model="code.content" class="textarea" name="content" placeholder="Textarea"></textarea>
+          </p>
+          <label class="label">Why and Purpose</label>
+          <p class="control">
+            <textarea v-model="code.why" class="textarea" name="why" placeholder="Textarea"></textarea>
+          </p>
+          <p class="control">
+            <button class="button is-primary">Submit</button>
+          <div class="control">
+            <button class="button_tog" type="button">
+              Toggle me yo
+            </button>
+
+            <div class="box dropdown">
+              I iz a dropdown.
+            </div>
+          </div>
+          <button class="button is-link">Cancel</button>
+          </p>
+        </form>
+      </div>
+      <div id="code_blog_entry_output" class="column is-half">
+        <div class="title">
+          <label>Title</label>
+          <h1>{{ code.title }}</h1>
+        </div>
+        <div class="heading">
+          <label>Heading:</label>
+          <p>{{ code.heading }}</p>
+        </div>
+        <div class="code_html">
+          <label>HTML</label>
+          <div style="height: 200px; overflow:auto;">
+            <xmp>
+              <code v-text="code.code_html"></code>
+            </xmp>
+          </div>
+        </div>
+        <div class="code_css">
+          <label>CSS</label>
+          <div style="height: 200px; overflow:auto;">
+            <xmp>
+              <code>{{ code.code_css }}</code>
+            </xmp>
+          </div>
+        </div>
+        <div class="code_js">
+          <label>JS</label>
+          <div style="height: 200px; overflow: auto;">
+            <xmp>
+              <code>{{ code.code_js }}</code>
+            </xmp>
+          </div>
+        </div>
+        <div class="code_combined">
+          <label>how it looks</label>
+          <div style="height: 200px; overflow:auto;">
+            <xmp>
+              <code>{{ rendered }}</code>
+            </xmp>
+          </div>
+          <div style="height: 500px; overflow:auto;">
+            <xmp>
+              <code v-html="rendered"></code>
+            </xmp>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Code Blog Output
+        </h1>
+        <h2 class="subtitle">
+          Blog for Unique and Useful Code
+        </h2>
+      </div>
+    </div>
+  </section>
+  <div class="container content">
+    <% @codes.each do |code| %>
+        <div class="box">
+          <h1><%= code[:heading] %></h1>
+          <p><%= code[:content] %></p>
+          <code><p><%= code[:code_html] %></p></code>
+          <code><p><%= code[:code_css] %></p></code>
+          <code><p><%= code[:code_js] %></p></code>
+          <p><%= code[:why] %></p>
+        </div>
+    <% end %>
+
+  </div>
+
+
+
+</div>
+<script>
+  var app = new Vue({
+    el: '#code_blog_app',
+    data: {
+      code: {
+        title: "",
+        heading: "",
+        code_html: "",
+        code_css: "",
+        code_js: "",
+        content: "",
+        why: ""
+      }
+    },
+    computed: {
+      rendered: function () {
+        if (this.code.code_css == "" && this.code.code_js == "") {
+          console.log(this.code.code_html)
+          return this.code.code_html;
+        }
+        console.log("css: ", this.code.code_css, "html: ", this.code.code_html, "js: ", this.code.code_js)
+        return this.code.code_js + " " + this.code.code_css + " " + this.code.code_html
+
+      }
+    },
+    methods: {
+
+    }
+  })
+
+
+</script>
+
+
+
+
+
+<script>
+  const button = document.querySelector('.button_tog');
+  const dropdown = document.querySelector('.dropdown');
+
+  button.addEventListener('click', () => {
+    dropdown.classList.toggle('is-open');
+  });
+</script>

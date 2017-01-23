@@ -1,15 +1,15 @@
-/usr/local/bin/ruby -r ./siteconf20160825-5-1cdic30.rb extconf.rb
+/usr/local/bin/ruby -r ./siteconf20170123-7-resbci.rb extconf.rb
 creating Makefile
 
 make "DESTDIR=" clean
 
 make "DESTDIR="
-compiling bcrypt_ext.c
-compiling crypt.c
-compiling crypt_blowfish.c
-compiling crypt_gensalt.c
 compiling wrapper.c
+compiling crypt_blowfish.c
+compiling crypt.c
+compiling crypt_gensalt.c
+compiling bcrypt_ext.c
 linking shared-object bcrypt_ext.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20160825-5-1uhocie
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20170123-7-1hfj5vw

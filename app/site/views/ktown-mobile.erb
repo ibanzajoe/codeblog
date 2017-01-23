@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="full_height">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%=@title%>
+  </title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/ktownsocial.css">
+  <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="app" class="container">
+  <div class="tabs is-boxed is-centered">
+    <ul>
+      <li class="setting is-active">
+        <a @click="set_setting">
+          <span style="margin-top: 4px; margin-bottom: 4px;" class="icon is-small"><i class="fa fa-bars"></i></span>
+        </a>
+      </li>
+      <li class="chance">
+        <a @click="set_chance">
+          <!--<span class="icon is-small"><i class="fa fa-image"></i></span>-->
+          <span>Chance!</span>
+        </a>
+      </li>
+      <li class="search">
+        <a @click="set_search">
+          <!--<span class="icon is-small"><i class="fa fa-music"></i></span>-->
+          <span>Search</span>
+        </a>
+      </li>
+      <li class="friends">
+        <a @click="set_friends">
+          <!--<span class="icon is-small"><i class="fa fa-film"></i></span>-->
+          <span>Messages</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div id="setting" class="body" v-if="myview === 'setting'">
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <div class="box">
+          <h1>Settings</h1>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body" v-else-if="myview === 'chance'">
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <!-- This is a "Chance!" Message from another user -->
+        <div class="box message">
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="http://bulma.io/images/placeholders/128x128.png">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>KTOWN HO</strong> <small>@ktownho</small> <small>31 (minutes ago...)</small>
+                  <br>
+                  HEY! Interested in drinking with you.  I'm really fun and easy going.
+                </p>
+              </div>
+              <nav class="level">
+                <div class="level-left">
+                  <a class="level-item reject">
+                    <span class="icon is-small"><i class="fa fa-minus-circle" style="color: red;"></i></span>
+                  </a>
+                  <a class="level-item comment">
+                    <span class="icon is-small"><i class="fa fa-comment" style="color: #d09a9a;"></i></span>
+                  </a>
+                  <a class="level-item accept">
+                    <span class="icon is-small"><i class="fa fa-heart" style="color: #fa7088;"></i></span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+            <div class="media-right">
+              <button class="delete"></button>
+            </div>
+          </article>
+        </div>
+
+        <div class="box message">
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="http://bulma.io/images/placeholders/128x128.png">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>KTOWN HO</strong> <small>@ktownho</small> <small>31 (minutes ago...)</small>
+                  <br>
+                  HEY! Interested in drinking with you.  I'm really fun and easy going.
+                </p>
+              </div>
+              <nav class="level">
+                <div class="level-left">
+                  <a class="level-item reject">
+                    <span class="icon is-small"><i class="fa fa-minus-circle" style="color: red;"></i></span>
+                  </a>
+                  <a class="level-item comment">
+                    <span class="icon is-small"><i class="fa fa-comment" style="color: #d09a9a;"></i></span>
+                  </a>
+                  <a class="level-item accept">
+                    <span class="icon is-small"><i class="fa fa-heart" style="color: #fa7088;"></i></span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+            <div class="media-right">
+              <button class="delete"></button>
+            </div>
+          </article>
+        </div>
+
+        <div class="box message">
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="http://bulma.io/images/placeholders/128x128.png">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>KTOWN HO</strong> <small>@ktownho</small> <small>31 (minutes ago...)</small>
+                  <br>
+                  HEY! Interested in drinking with you.  I'm really fun and easy going.
+                </p>
+              </div>
+              <nav class="level">
+                <div class="level-left">
+                  <a class="level-item reject">
+                    <span class="icon is-small"><i class="fa fa-minus-circle" style="color: red;"></i></span>
+                  </a>
+                  <a class="level-item comment">
+                    <span class="icon is-small"><i class="fa fa-comment" style="color: #d09a9a;"></i></span>
+                  </a>
+                  <a class="level-item accept">
+                    <span class="icon is-small"><i class="fa fa-heart" style="color: #fa7088;"></i></span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+            <div class="media-right">
+              <button class="delete"></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="search" class="body" v-else-if="myview === 'search'">
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <nav class="panel">
+          <p class="panel-heading">
+            Search for Events
+          </p>
+          <div class="panel-block">
+            <figure class="image is-16by9">
+              <img src="http://bulma.io/images/placeholders/256x256.png">
+            </figure>
+          </div>
+          <div class="panel-block">
+            <p class="control has-icon has-text-centered">
+              <input class="input is-small" type="text" placeholder="Search" style="width: 50%;">
+              <span class="icon is-small">
+                <i class="fa fa-search"></i>
+              </span>
+            </p>
+          </div>
+          <p class="search_nav panel-tabs">
+            <a @click="set_bar" class="bar is-active">Bars/Cafe</a>
+            <a @click="set_food" class="food">Food</a>
+            <a @click="set_coffee" class="coffee">Coffee</a>
+            <a @click="set_karaoke" class="karaoke">Karaoke</a>
+            <a @click="set_other" class="other">Other</a>
+          </p>
+          <div v-if="mysearch === 'bar'" class="bars">
+            <div class="box message">
+              <article class="media">
+                <figure class="media-left">
+                  <p class="image is-64x64">
+                    <img src="http://bulma.io/images/placeholders/128x128.png">
+                  </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>KTOWN HO</strong> <small>@ktownho</small> <small>31 (minutes ago...)</small>
+                      <br>
+                      HEY! Interested in drinking with you.  I'm really fun and easy going.
+                    </p>
+                  </div>
+                  <nav class="level">
+                    <div class="level-left">
+                      <a class="level-item reject">
+                        <span class="icon is-small"><i class="fa fa-minus-circle" style="color: red;"></i></span>
+                      </a>
+                      <a class="level-item comment">
+                        <span class="icon is-small"><i class="fa fa-comment" style="color: #d09a9a;"></i></span>
+                      </a>
+                      <a class="level-item accept">
+                        <span class="icon is-small"><i class="fa fa-heart" style="color: #fa7088;"></i></span>
+                      </a>
+                    </div>
+                  </nav>
+                </div>
+                <div class="media-right">
+                  <button class="delete"></button>
+                </div>
+              </article>
+            </div>
+            <div class="box message">
+              <article class="media">
+                <figure class="media-left">
+                  <p class="image is-64x64">
+                    <img src="http://bulma.io/images/placeholders/128x128.png">
+                  </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>KTOWN HO</strong> <small>@ktownho</small> <small>31 (minutes ago...)</small>
+                      <br>
+                      HEY! Interested in drinking with you.  I'm really fun and easy going.
+                    </p>
+                  </div>
+                  <nav class="level">
+                    <div class="level-left">
+                      <a class="level-item reject">
+                        <span class="icon is-small"><i class="fa fa-minus-circle" style="color: red;"></i></span>
+                      </a>
+                      <a class="level-item comment">
+                        <span class="icon is-small"><i class="fa fa-comment" style="color: #d09a9a;"></i></span>
+                      </a>
+                      <a class="level-item accept">
+                        <span class="icon is-small"><i class="fa fa-heart" style="color: #fa7088;"></i></span>
+                      </a>
+                    </div>
+                  </nav>
+                </div>
+                <div class="media-right">
+                  <button class="delete"></button>
+                </div>
+              </article>
+            </div>
+            <div class="box message">
+              <article class="media">
+                <figure class="media-left">
+                  <p class="image is-64x64">
+                    <img src="http://bulma.io/images/placeholders/128x128.png">
+                  </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>KTOWN HO</strong> <small>@ktownho</small> <small>31 (minutes ago...)</small>
+                      <br>
+                      HEY! Interested in drinking with you.  I'm really fun and easy going.
+                    </p>
+                  </div>
+                  <nav class="level">
+                    <div class="level-left">
+                      <a class="level-item reject">
+                        <span class="icon is-small"><i class="fa fa-minus-circle" style="color: red;"></i></span>
+                      </a>
+                      <a class="level-item comment">
+                        <span class="icon is-small"><i class="fa fa-comment" style="color: #d09a9a;"></i></span>
+                      </a>
+                      <a class="level-item accept">
+                        <span class="icon is-small"><i class="fa fa-heart" style="color: #fa7088;"></i></span>
+                      </a>
+                    </div>
+                  </nav>
+                </div>
+                <div class="media-right">
+                  <button class="delete"></button>
+                </div>
+              </article>
+            </div>
+
+            <div class="panel-block">
+              <button class="button is-primary is-outlined is-fullwidth">
+                Create Your Own Chance!
+              </button>
+            </div>
+          </div>
+          <div v-else-if="mysearch === 'food'" class="food">
+            <h1>Food</h1>
+          </div>
+          <div v-else-if="mysearch === 'coffee'" class="coffee">
+            <h1>Coffee</h1>
+          </div>
+          <div v-else-if="mysearch === 'karaoke'" class="karaoke">
+            <h1>Karaoke</h1>
+          </div>
+          <div v-else-if="mysearch === 'other'" class="other">
+            <h1>Other</h1>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="body" v-else-if="myview === 'friends'">
+    <h1>Friends</h1>
+  </div>
+  <div class="body" v-else-if="myview === 'events'">
+    <h1>Events</h1>
+  </div>
+</div>
+
+
+
+</body>
+
+
+<footer>
+
+</footer>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      myview: 'setting',
+      mysearch: 'bar'
+    },
+    methods: {
+      // main navigation part //
+      set_setting: function(){
+        myclass = this.myview;
+        $('.tabs ' + '.' + myclass + ' ').removeClass('is-active');
+        $('.tabs .setting').addClass('is-active');
+        this.myview = 'setting';
+      },
+      set_chance: function(){
+        myclass = this.myview;
+        $('.tabs ' + '.' + myclass + ' ').removeClass('is-active');
+        $('.tabs .chance').addClass('is-active');
+        this.myview = 'chance';
+      },
+      set_search: function(){
+        myclass = this.myview;
+        $('.tabs ' + '.' + myclass + ' ').removeClass('is-active');
+        $('.tabs .search').addClass('is-active');
+        this.myview = 'search';
+      },
+      set_friends: function(){
+        myclass = this.myview;
+        $('.tabs ' + '.' + myclass + ' ').removeClass('is-active');
+        $('.tabs .friends').addClass('is-active');
+        this.myview = 'friends';
+      },
+      set_events: function(){
+        this.myview = 'events';
+      },
+      // nav part ends //
+      // search nav //
+      set_bar: function(){
+        mysearch = this.mysearch;
+        $('.search_nav ' + '.' + mysearch + ' ').removeClass('is-active');
+        $('.search .bar').addClass('is-active');
+        this.mysearch = 'bar'
+      },
+      set_food: function(){
+        mysearch = this.mysearch;
+        $('.search_nav ' + '.' + mysearch + ' ').removeClass('is-active');
+        $('.search .food').addClass('is-active');
+        this.mysearch = 'food'
+      },
+      set_coffee: function(){
+        mysearch = this.mysearch;
+        $('.search_nav ' + '.' + mysearch + ' ').removeClass('is-active');
+        $('.search .coffee').addClass('is-active');
+        this.mysearch = 'coffee'
+      },
+      set_karaoke: function(){
+        mysearch = this.mysearch;
+        $('.search_nav ' + '.' + mysearch + ' ').removeClass('is-active');
+        $('.search .karaoke').addClass('is-active');
+        this.mysearch = 'karaoke'
+      },
+      set_other: function(){
+        mysearch = this.mysearch;
+        $('.search_nav ' + '.' + mysearch + ' ').removeClass('is-active');
+        $('.search .other').addClass('is-active');
+        this.mysearch = 'other'
+      }
+      // search nav end //
+
+
+    }
+  })
+
+
+
+
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,27 @@
+#code_blog_entry_input {
+    padding: 25px;
+}
+
+#code_blog_entry_output {
+    padding: 25px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.dropdown {
+    box-shadow: 0 0 8px #777;
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}
+
+.dropdown.is-open {
+    display: block;
+}
+
+[v-cloak] {
+    display: none;
+    background-color: red;
+}

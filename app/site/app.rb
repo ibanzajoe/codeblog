@@ -13,6 +13,7 @@ module Honeybadger
     layout :site
 
 
+
     ### this runs before all routes ###
     before do
       @title = "Honeybadger CMS"
@@ -165,6 +166,33 @@ module Honeybadger
 
     get '/landing' do
       render "landing2"
+    end
+
+    ### Code Blog Page ###
+
+    get '/code_blog' do
+      @codes = Code.all
+      render "code_blog"
+    end
+
+    post "/code_blog_input" do
+      codes = Code.new(params)
+      p "*********************"
+      p codes
+      codes.save
+      redirect("/code_blog")
+    end
+
+    get "/previewApp" do
+      render "preview_app"
+    end
+
+
+    ### KTOWN SOCIAL ###
+
+    get '/ktown-social' do
+      render "ktown-mobile.erb", :layout => false
+
     end
 
 

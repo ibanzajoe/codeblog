@@ -8,11 +8,66 @@
     </title>
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <link rel="stylesheet" href="/site/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/main2.css">
+    <link rel="stylesheet" href="/css/code_blog.css">
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
   </head>
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="nav-item is-brand" href="#">
+        <img src="http://bulma.io/images/bulma-type.png" alt="Bulma logo">
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <a class="nav-item" href="#">
+      <span class="icon">
+        <i class="fa fa-github"></i>
+      </span>
+      </a>
+      <a class="nav-item" href="#">
+      <span class="icon">
+        <i class="fa fa-twitter"></i>
+      </span>
+      </a>
+    </div>
+
+    <span class="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+
+    <div class="nav-right nav-menu">
+      <a class="nav-item" href="#">
+        Home
+      </a>
+      <a class="nav-item" href="#">
+        Documentation
+      </a>
+      <a class="nav-item" href="#">
+        Blog
+      </a>
+
+      <span class="nav-item">
+      <a class="button" >
+        <span class="icon">
+          <i class="fa fa-twitter"></i>
+        </span>
+        <span>Tweet</span>
+      </a>
+      <a class="button is-primary" href="#">
+        <span class="icon">
+          <i class="fa fa-download"></i>
+        </span>
+        <span>Download</span>
+      </a>
+    </span>
+    </div>
+  </nav>
+
+
   <body class="full_height no_margin full_bleed">
       <%= flash_tag(:notice, :class => 'alert alert-warning') %>
       <%= flash_tag(:error, :class => 'alert alert-error') %>

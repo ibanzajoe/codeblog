@@ -1,4 +1,4 @@
-/usr/local/bin/ruby -r ./siteconf20160825-5-5ewsyg.rb extconf.rb
+/usr/local/bin/ruby -r ./siteconf20170123-7-1r4xgvf.rb extconf.rb
 creating Makefile
 
 make "DESTDIR=" clean
